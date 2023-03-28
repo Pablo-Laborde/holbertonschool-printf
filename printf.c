@@ -17,8 +17,6 @@ int _printf(const char *format, ...)
 	va_start(ap, format);
 	load_buffer(&b, format, ap);
 	va_end(ap);
-	/*
-	 * printf buffer
-	 */
+	write(1, &(b.buffer), b.pos + 1);
 	return (b.pos + 1);
 }
