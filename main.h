@@ -31,7 +31,7 @@ typedef struct flags {
 int _printf(const char *format, ...);
 
 /* load_buffer.c */
-void load_buffer(buff_t *b, const char *format, va_list ap);
+void load_buffer(buff_t *b, const char *format, int *i ,va_list ap);
 
 /* get_func.c */
 int (*get_func(char c))(buff_t*, va_list);
@@ -41,5 +41,6 @@ void ADD_CHAR(buff_t *b, va_list ap);
 void ADD_STR(buff_t *b, va_list ap);
 void ADD_PER(buff_t *b, va_list ap);
 void ADD_INT(buff_t *b, va_list ap);
+void NOT_VALID_FLAG(buff_t *b);
 
 #endif
