@@ -30,8 +30,10 @@ typedef struct flags {
 /* printf.c */
 int _printf(const char *format, ...);
 
+/* load_buffer.c */
+void load_buffer(buff_t *b, const char *format, va_list ap);
+
 /* get_func.c */
-/* creates the functions pointers array */
 int (*get_func(char c))(buff_t*, va_list);
 
 /* functions.c */
