@@ -45,5 +45,5 @@ void ADD_CHAR(buff_t *b, va_list ap)
 	char c = va_arg(ap, int);
 
 	if (c != NULL)
-		b->buffer[0] = &c;
+		b->buffer[0] = c;
 }
