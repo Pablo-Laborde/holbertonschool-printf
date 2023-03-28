@@ -14,7 +14,7 @@ void load_buffer(buff_t *b, const char *format, int *i,va_list ap)
 	int (*f)(buff_t*, va_list);
 
 	/* code */
-	j = i;
+	j = *i;
 	while ((format[j] != '\0') && (b->pos < BUFFSIZE))
 	{
 		if (format[j] == '%')
@@ -40,5 +40,5 @@ void load_buffer(buff_t *b, const char *format, int *i,va_list ap)
 		j++;
 		b->pos += 1;
 	}
-	i += j;
+	*i += j;
 }
