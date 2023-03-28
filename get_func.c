@@ -1,23 +1,23 @@
 #include "main.h"
 
-/**
- * 
- * 
- * 
+/*
  */
 int (*get_func(char c))(buff_t*, va_list)
 {
 	int i = 0;
 
-	buff_t opt[] = {
-		{'c', ADD_CHAR},
+	flags_t opt[] = {
+		{'s', ADD_STR},
 		{'\0', NULL},
 	};
 
-	while (*(opt[i].ops) != *s)
+	while (i != 2)
 	{
-		i++;
+		if (opt[i].c == c)
+			opt[i].f;
+		else
+			i++;
 	}
 
-	return (ops[i].buffer);
+	return (NULL);
 }
