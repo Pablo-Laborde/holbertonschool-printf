@@ -39,8 +39,6 @@ int (*get_func(char c))(buff_t*, va_list);
 /* functions.c */
 void ADD_CHAR(buff_t *b, va_list ap);
 void ADD_STR(buff_t *b, va_list ap);
-void ADD_PER(buff_t *b, va_list ap);
 void ADD_INT(buff_t *b, va_list ap);
-void NOT_VALID_FLAG(buff_t *b);
 
 #endif
