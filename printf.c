@@ -8,15 +8,22 @@
 int _printf(const char *format, ...)
 {
 	/* var decalration */
+	int i, length;
 	buffer_t b;
 	va_list ap;
 
 	/* code */
 	if (format == NULL)
 		return (-1);
+	i = 0;
+	length = 0;
 	va_start(ap, format);
-	load_buffer(&b, format, ap);
+	while (format[i] != '\0')
+	{
+		load_buffer(&b, format, &i, ap);
+		length += b.pos;
+		write(1, &(b.buffer), b.pos + 1);
+	}
 	va_end(ap);
-	write(1, &(b.buffer), b.pos + 1);
-	return (b.pos + 1);
+	return (length);
 }
