@@ -1,0 +1,19 @@
+_printf(1) - Linux manual page
+
+NAME | SYNOPSIS | DESCRIPTION |
+RETURN VALUE | EXAMPLES
+
+_PRINTF(1)		Linux Programmer's Manual		_PRINTF(1)
+
+NAME
+
+	_printf - prints a string of chars
+
+
+SYNOPSIS
+
+	#include "main.h"
+
+	int _printf(const char *format, ...);
+
+DESCRIPTION
