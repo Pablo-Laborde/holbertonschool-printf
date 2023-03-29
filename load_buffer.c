@@ -23,7 +23,8 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 		{
 			j++;
 			if (format[j] != '\0')
-				if (format[j] == ' ');
+			{
+				if (format[j] == ' ')
 					fast_load(b, format, &j);
 				else
 				{
@@ -31,6 +32,7 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 					b->pos++;
 					fast_load(b, format, &j);
 				}
+			}
 		}
 	*i = j;
 	(void)ap;
