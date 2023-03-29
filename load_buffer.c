@@ -12,25 +12,35 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 {
 	/* var declaration */
 	int j;
-	/*void (*f)(buff_t*, va_list);*/
+	void (*f)(buff_t*, va_list);
 
 	/* code */
 	j = *i;
 	while ((format[j] != '\0') && (b->pos < BUFFSIZE))
-	{
 		if (format[j] != '%')
 			fast_load(b, format, &j);
 		else
 		{
 			j++;
-			if (format[j] == ' ')
-				fast_load(b, format, &j);
-			else
-				fast_load(b, format, &j);
+			if (format[j] != '\0')
+			{
+				if (format[j] == ' ')
+					fast_load(b, format, &j);
+				else
+				{
+					f = get_func(format[j]);
+					if (f != NULL)
+						(*f)(b, ap);
+					else
+					{
+						b->buffer[b->pos] = '%';
+						b->pos++;
+						fast_load(b, format, &j);
+					}
+				}
+			}
 		}
-	}
 	*i = j;
-	(void)ap;
 }
 
 /**
