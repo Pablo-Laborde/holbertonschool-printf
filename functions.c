@@ -1,6 +1,22 @@
 #include "main.h"
 
 /**
+* ADD_CHAR - Function
+* @b: input
+* @ap: input
+**/
+void ADD_CHAR(buff_t *b, va_list ap)
+{
+	/* var declaration */
+	char c;
+
+	/* code */
+        c = va_arg(ap, int);
+        if (c != '\0')
+                b->buffer[b->pos] = c;
+}
+
+/**
  * ADD_STR- function
  * @b: input
  * @ap: input
@@ -32,18 +48,4 @@ void ADD_STR(buff_t *b, va_list ap)
 			i++;
 		}
 	}
-}
-
-/**
-* ADD_CHAR - Function
-* @b: input
-* @ap: input
-**/
-
-void ADD_CHAR(buff_t *b, va_list ap)
-{
-	char c = va_arg(ap, int);
-
-	if (c != '\0')
-		b->buffer[0] = c;
 }
