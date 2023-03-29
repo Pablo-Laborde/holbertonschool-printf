@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * load_buffer- function
+ * 
  * @b: pointer to buff_t
  * @format: string
  * @i: position in format
