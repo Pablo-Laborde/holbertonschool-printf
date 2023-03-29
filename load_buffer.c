@@ -21,7 +21,9 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 			fast_load(b, format, &j);
 		else
 		{
-			fast_load(b, format, &j);
+			j++;
+			if (format[j] != '\0')
+				fast_load(b, format, &j);
 		}
 	*i = j;
 	(void)ap;
