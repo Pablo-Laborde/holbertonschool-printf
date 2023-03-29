@@ -4,19 +4,17 @@
  */
 int (*get_func(char c))(buff_t*, va_list)
 {
-	int i = 0;
-
-	flags_t opt[] = {
-		{'s', ADD_STR},
-		{'\0', NULL},
+	flags_t arr[] = {
+		{'s', ADD_STR}
 	};
 
-	while (i != 2)
+	int flags = 1;
+	int i = 0;
+
+	for (i = 0 ; i < flags ; i++)
 	{
-		if (opt[i].c == c)
-			opt[i].f;
-		else
-			i++;
+		if (arr[i].c == c)
+			return (arr[i].f);
 	}
 
 	return (NULL);
