@@ -4,7 +4,8 @@
 * ADD_CHAR - Function
 * @b: input
 * @ap: input
-**/
+* Return: void
+*/
 void ADD_CHAR(buff_t *b, va_list ap)
 {
 	/* var declaration */
