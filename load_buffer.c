@@ -20,14 +20,11 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 		if (format[j] == '%')
 		{
 			j++;
-			if (format[j] == '%')
-				b->buffer[b->pos] = format[j];
+			f = get_func(format[j]);
+			if (f != NULL)
+				(*f)(b, ap);
 			else
-			{
-				f = get_func(format[j]);
-				if (f != NULL)
-					(*f)(b, ap);
-			}
+				b->buffer[b->pos] = format[j];
 		}
 		else
 			b->buffer[b->pos] = format[j];

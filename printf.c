@@ -16,17 +16,16 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 	i = 0;
-	length = 0;
 	va_start(ap, format);
 	b.pos = 0;
 	b.length = 0;
 	while (format[i] != '\0')
 	{
 		load_buffer(&b, format, &i, ap);
-		length += b.pos;
+		b.length += b.pos;
 		write(1, b.buffer, b.pos);
 		b.pos = 0;
 	}
 	va_end(ap);
-	return (length);
+	return (b.length);
 }
