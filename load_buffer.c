@@ -28,10 +28,8 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 					fast_load(b, format, &j);
 				else
 				{
-					f = get_func(format[j]);
-					if (f != NULL)
-						(*f)(b, ap);
-					else
+					f = NULL;
+					if (f == NULL)
 					{
 						b->buffer[b->pos] = '%';
 						b->pos++;
@@ -41,6 +39,7 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 			}
 		}
 	*i = j;
+	(void)ap;
 }
 
 /**
