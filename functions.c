@@ -38,14 +38,7 @@ void ADD_STR(buff_t *b, va_list ap)
 		while (s[i] != '\0')
 		{
 			b->pos += 1;
-			if (s[i] == '\\')
-			{
-				i++;
-				if (s[i] == 'n')
-					b->buffer[b->pos] = '\n';
-			}
-			else
-				b->buffer[b->pos] = s[i];
+			b->buffer[b->pos] = s[i];
 			i++;
 		}
 	}

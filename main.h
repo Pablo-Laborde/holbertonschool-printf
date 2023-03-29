@@ -15,7 +15,7 @@
  * @buffer: buffer
  */
 typedef struct buff {
-	int pos;
+	int pos, length;
 	char buffer[BUFFSIZE];
 } buff_t;
 
