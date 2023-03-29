@@ -33,3 +33,17 @@ void ADD_STR(buff_t *b, va_list ap)
 		}
 	}
 }
+
+/**
+* ADD_CHAR - Function
+* @b: input
+* @ap: input
+**/
+
+void ADD_CHAR(buff_t *b, va_list ap)
+{
+	char c = va_arg(ap, int);
+
+	if (c != '\0')
+		b->buffer[0] = c;
+}
