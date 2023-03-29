@@ -1,23 +1,26 @@
 #include "main.h"
 
 /**
- * 
- * 
- * 
+ * get_func- function
+ * @c: input
+ * Return: function pointer
  */
 int (*get_func(char c))(buff_t*, va_list)
 {
-	int i = 0;
-
-	buff_t opt[] = {
+	/* var declaration */
+	int i;
+	flags_t fl[] = {
 		{'c', ADD_CHAR},
+		{'s', ADD_STR},
+		{'i', ADD_INT},
+		{'d', ADD_INT},
 		{'\0', NULL},
 	};
 
-	while (*(opt[i].ops) != *s)
-	{
+	/* code */
+	i = 0;
+	while (fl[i].c != '\0' && fl[i].c != c)
 		i++;
-	}
 
-	return (ops[i].buffer);
+	return (fl[i].f);
 }

@@ -23,6 +23,7 @@ int _printf(const char *format, ...)
 		load_buffer(&b, format, &i, ap);
 		length += b.pos;
 		write(1, &(b.buffer), b.pos + 1);
+		b.pos = 0;
 	}
 	va_end(ap);
 	return (length);
