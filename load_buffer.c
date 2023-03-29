@@ -4,6 +4,7 @@
  * load_buffer- function
  * @b: pointer to buff_t
  * @format: string
+ * @i: position in format
  * @ap: va_list
  * Return: void
  */

@@ -22,9 +22,7 @@ int _printf(const char *format, ...)
 	while (format[i] != '\0')
 	{
 		load_buffer(&b, format, &i, ap);
-		b.length += b.pos;
-		write(1, b.buffer, b.pos);
-		b.pos = 0;
+		buff_ctrl(&b);
 	}
 	va_end(ap);
 	return (b.length);
