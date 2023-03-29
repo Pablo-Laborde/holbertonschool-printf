@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	va_list ap;
 
 	/* code */
-	if (format == NULL) /*|| (format[0] == '%' && format[1] == '\0')) */
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 	i = 0;
 	va_start(ap, format);
