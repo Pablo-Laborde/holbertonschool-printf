@@ -32,6 +32,7 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 /**
  * fast_load- function
  * @b: buffer pointer
+ * @format: format
  * @j: int
  * Return: void
  */
