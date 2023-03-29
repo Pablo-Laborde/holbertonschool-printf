@@ -1,6 +1,8 @@
 #ifndef PRINTF_H
 #define PRINTF_H
 
+#include <stdio.h>
+
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
@@ -34,7 +36,7 @@ int _printf(const char *format, ...);
 void load_buffer(buff_t *b, const char *format, int *i ,va_list ap);
 
 /* get_func.c */
-int (*get_func(char c))(buff_t*, va_list);
+void (*get_func(char c))(buff_t*, va_list);
 
 /* functions.c */
 void ADD_CHAR(buff_t *b, va_list ap);

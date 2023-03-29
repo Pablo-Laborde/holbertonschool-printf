@@ -7,15 +7,20 @@
  * @ap: va_list
  * Return: void
  */
-void load_buffer(buff_t *b, const char *format, int *i,va_list ap)
+void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 {
 	/* var declaration */
 	int j;
-	int (*f)(buff_t*, va_list);
+	void (*f)(buff_t*, va_list);
 
 	/* code */
 	j = *i;
-	while ((format[j] != '\0') && (b->pos < BUFFSIZE))
+	for (j = *i; j < 10; j++)
+	{
+		b->buffer[j] = j;
+		b->pos += 1;
+	}
+	/*while ((format[j] != '\0') && (b->pos < BUFFSIZE))
 	{
 		if (format[j] == '%')
 		{
@@ -29,7 +34,7 @@ void load_buffer(buff_t *b, const char *format, int *i,va_list ap)
 					(*f)(b, ap);
 			}
 		}
-		else if (format[j] == '\')
+		else if (format[j] == '\\')
 		{
 			j++;
 			if (format[j] == 'n')
@@ -39,6 +44,6 @@ void load_buffer(buff_t *b, const char *format, int *i,va_list ap)
 			b->buffer[b->pos] = format[j];
 		j++;
 		b->pos += 1;
-	}
+	}*/
 	*i = j;
 }

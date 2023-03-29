@@ -31,14 +31,14 @@ void ADD_STR(buff_t *b, va_list ap)
 
 	/* code */
 	s = va_arg(ap, char*);
-	if (s != NULL && s != "")
+	if (s != NULL && s[0] != '\0')
 	{
 		b->buffer[b->pos] = s[0];
 		i = 1;
 		while (s[i] != '\0')
 		{
 			b->pos += 1;
-			if (s[i] == '\')
+			if (s[i] == '\\')
 			{
 				i++;
 				if (s[i] == 'n')
