@@ -32,6 +32,7 @@ int _printf(const char *format, ...);
 
 /* load_buffer.c */
 void load_buffer(buff_t *b, const char *format, int *i ,va_list ap);
+void fast_load(buff_t *b, const char *format, int *i);
 
 /* get_func.c */
 void (*get_func(char c))(buff_t*, va_list);

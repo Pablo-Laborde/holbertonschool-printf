@@ -18,10 +18,26 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 	j = *i;
 	while ((format[j] != '\0') && (b->pos < BUFFSIZE))
 	{
-		b->buffer[b->pos] = format[j];
-		j++;
-		b->pos++;
+		if (format[j] != '%')
+			fast_load(b, format, &j);
+		else
+		{
+			fast_load(b, format, &j);
+		}
 	}
 	*i = j;
 	(void)ap;
+}
+
+/**
+ * fast_load- function
+ * @b: buffer pointer
+ * @j: int
+ * Return: void
+ */
+void fast_load(buff_t *b, const char *format, int *j)
+{
+	b->buffer[b->pos] = format[(*j)];
+	(*j)++;
+	b->pos++;
 }
