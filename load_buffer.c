@@ -12,7 +12,7 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 {
 	/* var declaration */
 	int j;
-	void (*f)(buff_t*, va_list);
+	/*void (*f)(buff_t*, va_list);*/
 
 	/* code */
 	j = *i;
@@ -23,4 +23,5 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 		b->pos++;
 	}
 	*i = j;
+	(void)ap;
 }
