@@ -1,31 +1,38 @@
-#include "main.h"
+#include "../main.h"
 #include <stdio.h>
 
 int main(void)
 {
-	_printf("a-Prueba\n");
-	printf("z-Prueba\n");
-	_printf("");
-	printf("");
-	_printf("%");
-	printf("%");
-	_printf("a-%%");
-	printf("\n");
-	printf("z-%%");
-	_printf("a-Hola % Hola");
-	printf("z-Hola % Hola");
-	_printf("\nem\na--AcA--\n----\n");
-	printf("z--AcA--\n----\n");
-	_printf("a-Salto de linea.\n");
-	printf("z-Salto de linea.\n");
 
-	_printf("\n\n\n\n\n");
+int i = 1;
 
-	_printf("a-como");
-	printf("z-como");
-	_printf("a-Hola%");
-	printf("z-Hola%");
-	printf("\n");
+
+printf("Test %d:\n", i);
+printf("Esperado:\n");
+printf("Holanda");
+printf("\n");
+printf("Obtenido:\n");
+_printf("Holanda");
+printf("\n");
+i++;
+
+printf("Test %d:\n", i);
+printf("Esperado:\n");
+printf("Holanda");
+printf("\n");
+printf("Obtenido:\n");
+_printf("Holanda");
+printf("\n");
+i++;
+
+printf("Test %d:\n", i);
+printf("Esperado:\n");
+printf("Holanda");
+printf("\n");
+printf("Obtenido:\n");
+_printf("Holanda");
+printf("\n");
+i++;
 
 	return (0);
 }
