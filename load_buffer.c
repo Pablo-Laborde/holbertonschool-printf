@@ -18,6 +18,9 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 	j = *i;
 	while ((format[j] != '\0')) /* && (b->pos < BUFFSIZE)) */
 	{
+		b->buffer[b->pos] = format[j];
+		j++;
+		/*
 		if (format[j] == '%')
 		{
 			if (format[j + 1] == '\0')
@@ -53,6 +56,7 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 			j++;
 			b->pos += 1;
 		}
+		*/
 	}
 	*i = j;
 }
