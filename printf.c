@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _printf- function
+ * 
  * @format: string input
  * Return: length of string if valid ,else a negative number
  */
