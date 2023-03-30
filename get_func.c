@@ -12,8 +12,8 @@ void (*get_func(char c))(buff_t*, va_list)
 	flags_t fl[] = {
 		{'c', ADD_CHAR},
 		{'s', ADD_STR},
-		/*{'i', ADD_INT},*/
-		/*{'d', ADD_INT},*/
+		{'i', ADD_INT},
+		{'d', ADD_INT},
 		{'\0', NULL},
 	};
 
