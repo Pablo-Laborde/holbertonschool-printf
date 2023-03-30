@@ -82,5 +82,13 @@ _printf("Ya sab %s\n", NULL);
 printf("\n");
 i++;
 
+printf("Test %d:\n", i);
+printf("Esperado:\n");
+printf("");
+printf("Obtenido:\n");
+_printf("");
+printf("\n");
+i++;
+
 	return (0);
 }

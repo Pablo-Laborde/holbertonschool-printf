@@ -39,9 +39,31 @@ void ADD_STR(buff_t *b, va_list ap)
 		s = "(null)";
 	while (s[i] != '\0')
 	{
-		b->buffer[b->pos] = s[i];
-		i++;
-		b->pos++;
+		fast_load(b, s, &i);
+		if (b->pos == BUFFSIZE)
+			buff_ctrl(b);
+	}
+}
+
+/**
+ * ADD_INT- function
+ * @b: input
+ * @ap: input
+ * Return:void
+ */
+void ADD_INT(buff_t *b, va_list ap)
+{
+	/* var declaration */
+	int i, num;
+	char *digits;
+
+	/* code */
+	digits = NULL;
+	num = va_arg(ap, int);
+	/*transform num*/
+	while (digits[i] != '\0')
+	{
+		fast_load(b, digits, &i);
 		if (b->pos == BUFFSIZE)
 			buff_ctrl(b);
 	}
