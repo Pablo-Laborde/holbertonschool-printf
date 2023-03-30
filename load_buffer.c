@@ -28,10 +28,12 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 					fast_load(b, format, &j);
 				else
 				{
-					if (format[j] == 'c' || format [j] == 's')
+					if (format[j] == 'c' /*|| format [j] == 's'*/)
 					{
 						f = get_func(format[j]);
 						(*f)(b, ap);
+						j++;
+						b->pos++;
 					}
 					else
 					{
@@ -39,8 +41,6 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 						b->pos++;
 						fast_load(b, format, &j);
 					}
-					j++;
-					b->pos++;
 				}
 			}
 		}
