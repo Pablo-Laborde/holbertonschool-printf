@@ -60,6 +60,7 @@ void ADD_INT(buff_t *b, va_list ap)
 	/* code */
 	digits = NULL;
 	num = va_arg(ap, int);
+	(void)num;
 	/*transform num*/
 	while (digits[i] != '\0')
 	{
