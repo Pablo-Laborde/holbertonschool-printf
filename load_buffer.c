@@ -30,7 +30,8 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 				{
 					if (format[j] == 'c')
 						case_c(b, format, &j, ap);
-					/*else if (format[j] == 's')*/
+					else if (format[j] == 's')
+						case_s(b, format, &j, ap);
 					else
 					{
 						b->buffer[b->pos] = '%';
@@ -66,6 +67,24 @@ void fast_load(buff_t *b, const char *format, int *j)
  * Return: void
  */
 void case_c(buff_t *b, const char *format, int *j, va_list ap)
+{
+	void (*f)(buff_t*, va_list);
+
+	f = get_func(format[(*j)]);
+	(*f)(b, ap);
+	(*j)++;
+	b->pos++;
+}
+
+/**
+ * case_s- function
+ * @b: i
+ * @format: i
+ * @j: i
+ * @ap: i
+ * Return: void
+ */
+void case_s(buff_t *b, const char *format, int *j, va_list ap)
 {
 	void (*f)(buff_t*, va_list);
 
