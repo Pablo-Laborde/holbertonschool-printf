@@ -61,7 +61,6 @@ void slct_opt(buff_t *b, const char *format, int *i, va_list ap)
 		{
 			(*f)(b, ap);
 			(*i)++;
-			b->pos++;
 		}
 		else
 		{
