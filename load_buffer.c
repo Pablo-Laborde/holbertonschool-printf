@@ -28,7 +28,6 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 					fast_load(b, format, &j);
 				else
 				{
-					if 
 					b->buffer[b->pos] = '%';
 					b->pos++;
 					fast_load(b, format, &j);
