@@ -28,11 +28,11 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 					fast_load(b, format, &j);
 				else
 				{
-					f = NULL;
-					if (format[j] == 's')
+					if (format[j] == 'c' || format [j] == 's')
+					{
 						f = get_func(format[j]);
-					if (f != NULL)
 						(*f)(b, ap);
+					}
 					else
 					{
 						b->buffer[b->pos] = '%';
