@@ -92,6 +92,26 @@ i++;
 
 printf("Test %d:\n", i);
 printf("Esperado:\n");
+printf("%c", '\0');
+printf("\n");
+printf("Obtenido:\n");
+_printf("%c", '\0');
+printf("\n");
+printf("\n");
+i++;
+
+printf("Test %d:\n", i);
+printf("Esperado:\n");
+printf("\%%c", '\0');
+printf("\n");
+printf("Obtenido:\n");
+_printf("\%%c", '\0');
+printf("\n");
+printf("\n");
+i++;
+
+printf("Test %d:\n", i);
+printf("Esperado:\n");
 printf("%i\n", 5);
 printf("Obtenido:\n");
 _printf("%i\n", 5);
