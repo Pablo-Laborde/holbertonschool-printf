@@ -11,85 +11,63 @@
 void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 {
 	/* var declaration */
-	int j;
-	/*void (*f)(buff_t*, va_list);*/
 
 	/* code */
-	j = *i;
-	while ((format[j] != '\0') && (b->pos < BUFFSIZE))
-		if (format[j] != '%')
-			fast_load(b, format, &j);
+	while ((format[(*i)] != '\0') && (b->pos < BUFFSIZE))
+		if (format[(*i)] != '%')
+			fast_load(b, format, i);
 		else
 		{
-			j++;
-			if (format[j] != '\0')
-			{
-				if (format[j] == ' ' || format[j] == '%')
-					fast_load(b, format, &j);
-				else
-				{
-					if (format[j] == 'c')
-						case_c(b, format, &j, ap);
-					/*else if (format[j] == 's')*/
-						/*case_s(b, format, &j, ap);*/
-					else
-					{
-						b->buffer[b->pos] = '%';
-						b->pos++;
-						fast_load(b, format, &j);
-					}
-				}
-			}
+			(*i)++;
+			if (format[(*i)] != '\0')
+				slct_opt(b, format, i, ap);
 		}
-	*i = j;
 }
 
 /**
  * fast_load- function
  * @b: buffer pointer
  * @format: format
- * @j: int
+ * @i: int
  * Return: void
  */
-void fast_load(buff_t *b, const char *format, int *j)
+void fast_load(buff_t *b, const char *format, int *i)
 {
-	b->buffer[b->pos] = format[(*j)];
-	(*j)++;
+	b->buffer[b->pos] = format[(*i)];
+	(*i)++;
 	b->pos++;
 }
 
 /**
- * case_c- function
- * @b: i
- * @format: i
- * @j: i
- * @ap: i
+ * slct_opt- function
+ * @b: buffer pointer
+ * @format: format
+ * @i: position in format
+ * @ap: va_list
  * Return: void
  */
-void case_c(buff_t *b, const char *format, int *j, va_list ap)
+void slct_opt(buff_t *b, const char *format, int *i, va_list ap)
 {
+	/* var declaration */
 	void (*f)(buff_t*, va_list);
 
-	f = get_func(format[(*j)]);
-	(*f)(b, ap);
-	(*j)++;
-	b->pos++;
-}
-
-/**
- * case_s- function
- * @b: i
- * @format: i
- * @j: i
- * @ap: i
- * Return: void
- */
-void case_s(buff_t *b, const char *format, int *j, va_list ap)
-{
-	void (*f)(buff_t*, va_list);
-
-	f = get_func(format[(*j)]);
-	(*f)(b, ap);
-	(*j)++;
-	b->pos++;
+	/* cose */
+	if (format[(*i)] == ' ' || format[(*i)] == '%')
+		fast_load(b, format, i);
+	else
+	{
+		f = get_func(format[(*i)]);
+		if (f != NULL)
+		{
+			(*f)(b, ap);
+			(*i)++;
+			b->pos++;
+		}
+		else
+		{
+			b->buffer[b->pos] = '%';
+			b->pos++;
+			fast_load(b, format, i);
+		}
+	}
 }
