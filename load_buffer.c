@@ -30,13 +30,15 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 				{
 					if (format[j] == 'c')
 						case_c(b, format, &j, ap);
-					else if (format[j] == 's')
-						case_s(b, format, &j, ap);
+					/*else if (format[j] == 's')*/
+						/*case_s(b, format, &j, ap);*/
 					else
 					{
 						b->buffer[b->pos] = '%';
 						b->pos++;
 						fast_load(b, format, &j);
+						j++;
+						b->pos++;
 					}
 				}
 			}
