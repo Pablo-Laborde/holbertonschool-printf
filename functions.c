@@ -67,6 +67,7 @@ void ADD_INT(buff_t *b, va_list ap)
 		if (b->pos == BUFFSIZE)
 			buff_ctrl(b);
 	}
+	i = 0;
 	while (digits[i] != '\0')
 	{
 		fast_load(b, digits, &i);

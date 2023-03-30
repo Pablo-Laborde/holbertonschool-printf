@@ -21,31 +21,35 @@ void buff_ctrl(buff_t *b)
 void int_to_char(int num, char *digits)
 {
 	/* var declaration */
-	int i, aux, length;
+	int i, aux, aux2, length;
 
 	/* code */
-	length = 0;
-	aux = num;
-	while (aux > 0)
+	if (num == 0)
 	{
-		aux /= 10;
-		length++;
+		digits[0] = '0';
+		digits[1] = '\0';
 	}
-	digits[length] = '\0';
-	i = length - 1;
-	aux = num;
-	if (aux > 0)
-		while (aux > 0)
+	else /* (num != 0) */
+	{
+		length = 0;
+		aux = num;
+		while (aux != 0)
 		{
-			digits[i] = (aux % 10) + '0';
+			aux /= 10;
+			length++;
+		}
+		digits[length] = '\0';
+		i = length - 1;
+		aux = num;
+		while (aux != 0)
+		{
+			if (aux > 0)
+				aux2 = (aux % 10);
+			else
+				aux2 = (aux % 10) * -1;
+			digits[i] = aux2 + '0';
 			aux /= 10;
 			i--;
 		}
-	else
-		while (aux < 0)
-		{
-			digits[i] = (aux % 10) * -1 + '0';
-			aux /= 10;
-			i--;
-		}
+	}
 }
