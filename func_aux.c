@@ -68,11 +68,16 @@ void ui_to_char(unsigned int num, char *digits)
 
 	/* code */
 	aux = num;
-	length = 1;
-	while (aux > 0)
+	if (num == 0)
+		length = 1;
+	else
 	{
-		aux /= 10;
-		length++;
+		length = 0;
+		while (aux > 0)
+		{
+			aux /= 10;
+			length++;
+		}
 	}
 	digits[length] = '\0';
 	i = length - 1;
