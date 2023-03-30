@@ -33,21 +33,16 @@ void ADD_STR(buff_t *b, va_list ap)
 	char *s;
 
 	/* code */
+	i = 0;
 	s = va_arg(ap, char*);
 	if (s == NULL)
-		s = ("(null)");
-
-	b->buffer[b->pos] = s[0];
-	i = 1;
+		s = "(null)";
 	while (s[i] != '\0')
 	{
-		while (b->pos < BUFFSIZE)
-		{
-			b->pos += 1;
-			b->buffer[b->pos] = s[i];
-			i++;
-		}
-		if (s[i] != '\0')
+		b->buffer[b->pos] = s[i];
+		i++;
+		b->pos++;
+		if (b->pos == BUFFSIZE)
 			buff_ctrl(b);
 	}
 }

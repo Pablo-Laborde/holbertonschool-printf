@@ -66,5 +66,21 @@ _printf("Ya sab%c\n", 'e');
 printf("\n");
 i++;
 
+printf("Test %d:\n", i);
+printf("Esperado:\n");
+printf("Ya sab %s\n", "Hola");
+printf("Obtenido:\n");
+_printf("Ya sab %s\n", "Hola");
+printf("\n");
+i++;
+
+printf("Test %d:\n", i);
+printf("Esperado:\n");
+printf("Ya sab %s\n", NULL);
+printf("Obtenido:\n");
+_printf("Ya sab %s\n", NULL);
+printf("\n");
+i++;
+
 	return (0);
 }
