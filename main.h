@@ -44,5 +44,6 @@ void ADD_INT(buff_t *b, va_list ap);
 
 /* func_aux.c */
 void buff_ctrl(buff_t *b);
+void int_to_char(int num, char *digits);
 
 #endif

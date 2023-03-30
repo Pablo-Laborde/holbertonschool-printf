@@ -55,13 +55,18 @@ void ADD_INT(buff_t *b, va_list ap)
 {
 	/* var declaration */
 	int i, num;
-	char *digits;
+	char digits[11];
 
 	/* code */
-	digits = NULL;
 	num = va_arg(ap, int);
-	(void)num;
-	/*transform num*/
+	int_to_char(num, digits);
+	if (num < 0)
+	{
+		b->buffer[b->pos] = '-';
+		b->pos++;
+		if (b->pos == BUFFSIZE)
+			buff_ctrl(b);
+	}
 	while (digits[i] != '\0')
 	{
 		fast_load(b, digits, &i);
