@@ -67,6 +67,8 @@ void slct_opt(buff_t *b, const char *format, int *i, va_list ap)
 		{
 			b->buffer[b->pos] = '%';
 			b->pos++;
+			if (b->pos == BUFFSIZE)
+				buff_ctrl(b);
 			fast_load(b, format, i);
 		}
 	}
