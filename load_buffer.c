@@ -24,10 +24,11 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 			j++;
 			if (format[j] != '\0')
 			{
-				if (format[j] == ' ')
+				if (format[j] == ' ' || format[j] == '%')
 					fast_load(b, format, &j);
 				else
 				{
+					if 
 					b->buffer[b->pos] = '%';
 					b->pos++;
 					fast_load(b, format, &j);
