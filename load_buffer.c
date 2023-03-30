@@ -29,7 +29,7 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 				else
 				{
 					f = NULL;
-					if (format[j] == 'c')
+					if (format[j] == 's')
 						f = get_func(format[j]);
 					if (f != NULL)
 						(*f)(b, ap);
