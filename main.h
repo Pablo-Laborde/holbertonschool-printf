@@ -6,7 +6,6 @@
 #include <stdarg.h>
 
 #define BUFFSIZE 1024
-
 /**
  * struct buff- structure
  * @pos: position in the buffer
@@ -31,8 +30,9 @@ typedef struct flags {
 int _printf(const char *format, ...);
 
 /* load_buffer.c */
-void load_buffer(buff_t *b, const char *format, int *i ,va_list ap);
+void load_buffer(buff_t *b, const char *format, int *i , va_list ap);
 void fast_load(buff_t *b, const char *format, int *i);
+void case_c(buff_t *b, const char *format, int *j, va_list ap);
 
 /* get_func.c */
 void (*get_func(char c))(buff_t*, va_list);

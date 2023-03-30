@@ -12,7 +12,7 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 {
 	/* var declaration */
 	int j;
-	void (*f)(buff_t*, va_list);
+	/*void (*f)(buff_t*, va_list);*/
 
 	/* code */
 	j = *i;
@@ -28,13 +28,9 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 					fast_load(b, format, &j);
 				else
 				{
-					if (format[j] == 'c' || format [j] == 's')
-					{
-						f = get_func(format[j]);
-						(*f)(b, ap);
-						j++;
-						b->pos++;
-					}
+					if (format[j] == 'c')
+						case_c(b, format, &j, ap);
+					/*else if (format[j] == 's')*/
 					else
 					{
 						b->buffer[b->pos] = '%';
@@ -57,6 +53,24 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 void fast_load(buff_t *b, const char *format, int *j)
 {
 	b->buffer[b->pos] = format[(*j)];
+	(*j)++;
+	b->pos++;
+}
+
+/**
+ * case_c- function
+ * @b: i
+ * @format: i
+ * @j: i
+ * @ap: i
+ * Return: void
+ */
+void case_c(buff_t *b, const char *format, int *j, va_list ap)
+{
+	void (*f)(buff_t*, va_list);
+
+	f = get_func(format[(*j)]);
+	(*f)(b, ap);
 	(*j)++;
 	b->pos++;
 }
