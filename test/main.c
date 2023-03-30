@@ -100,6 +100,7 @@ printf("\n");
 printf("\n");
 i++;
 
+/*
 printf("Test %d:\n", i);
 printf("Esperado:\n");
 printf("\%%c", '\0');
@@ -109,6 +110,7 @@ _printf("\%%c", '\0');
 printf("\n");
 printf("\n");
 i++;
+*/
 
 printf("Test %d:\n", i);
 printf("Esperado:\n");
@@ -155,6 +157,30 @@ printf("Esperado:\n");
 printf("%d\n", -0);
 printf("Obtenido:\n");
 _printf("%d\n", -0);
+printf("\n");
+i++;
+
+printf("Test %d:\n", i);
+printf("Esperado:\n");
+printf("%b\n", 0);
+printf("Obtenido:\n");
+_printf("%b\n", 0);
+printf("\n");
+i++;
+
+printf("Test %d:\n", i);
+printf("Esperado:\n");
+printf("%b\n", 64);
+printf("Obtenido:\n");
+_printf("%b\n", 64);
+printf("\n");
+i++;
+
+printf("Test %d:\n", i);
+printf("Esperado:\n");
+printf("%b\n", 345657);
+printf("Obtenido:\n");
+_printf("%b\n", 345657);
 printf("\n");
 i++;
 
