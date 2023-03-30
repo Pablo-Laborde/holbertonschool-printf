@@ -39,13 +39,13 @@ void int_to_char(int num, char *digits)
 		{
 			digits[i] = (aux % 10) + '0';
 			aux /= 10;
-			i++;
+			i--;
 		}
 	else
 		while (aux < 0)
 		{
 			digits[i] = (aux % 10) * -1 + '0';
 			aux /= 10;
-			i++;
+			i--;
 		}
 }
