@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * conv_to_binary- function
+ * to_bin- function
  * @b: input
  * @ap: input
  * Return: void
  */
-void conv_to_binary(buff_t *b, va_list ap)
+void to_bin(buff_t *b, va_list ap)
 {
 	/* var declaration */
 	int i;

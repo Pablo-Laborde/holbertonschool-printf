@@ -47,7 +47,7 @@ void ADD_STR(buff_t *b, va_list ap);
 void ADD_INT(buff_t *b, va_list ap);
 
 /* func1.c */
-void conv_to_binary(buff_t *b, va_list ap);
+void to_binary(buff_t *b, va_list ap);
 
 /* func_aux.c */
 void buff_ctrl(buff_t *b);
