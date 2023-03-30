@@ -1,5 +1,6 @@
 #include "../main.h"
 #include <stdio.h>
+#include <limits.h>
 
 int main(void)
 {
@@ -184,5 +185,48 @@ _printf("%b\n", 345657);
 printf("\n");
 i++;
 
+printf("Test %d:\n", i);
+printf("Esperado:\n");
+printf("%u\n", -1);
+printf("%u\n", 0);
+printf("%u\n", 1);
+printf("%u\n", 123456789);
+printf("%u\n");
+printf("Obtenido:\n");
+_printf("%\n");
+printf("\n");
+i++;
+
+printf("Test %d:\n", i);
+printf("Esperado:\n");
+printf("\n");
+printf("Obtenido:\n");
+_printf("\n");
+printf("\n");
+i++;
+
+printf("Test %d:\n", i);
+printf("Esperado:\n");
+printf("\n");
+printf("Obtenido:\n");
+_printf("\n");
+printf("\n");
+i++;
+
+printf("Test %d:\n", i);
+printf("Esperado:\n");
+printf("\n");
+printf("Obtenido:\n");
+_printf("\n");
+printf("\n");
+i++;
+
+printf("Test %d:\n", i);
+printf("Esperado:\n");
+printf("\n");
+printf("Obtenido:\n");
+_printf("\n");
+printf("\n");
+i++;
 	return (0);
 }

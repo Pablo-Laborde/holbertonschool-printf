@@ -75,3 +75,28 @@ void ADD_INT(buff_t *b, va_list ap)
 			buff_ctrl(b);
 	}
 }
+
+/**
+ * ADD_UI- function
+ * @b: input
+ * @ap: input
+ * Return: void
+ */
+void ADD_UI(buff_t *b, va_list ap)
+{
+	/* var declaration */
+	int i;
+	unsigned int num;
+	char digits[11];
+
+	/* code */
+	num = va_arg(ap, int);
+	ui_to_char(num, digits);
+	i = 0;
+	while (digits[i] != '\0')
+	{
+		fast_load(b, digits, &i);
+		if (b->pos == BUFFSIZE)
+			buff_ctrl(b);
+	}
+}

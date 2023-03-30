@@ -45,6 +45,7 @@ void (*get_func(char c))(buff_t*, va_list);
 void ADD_CHAR(buff_t *b, va_list ap);
 void ADD_STR(buff_t *b, va_list ap);
 void ADD_INT(buff_t *b, va_list ap);
+void ADD_UI(buff_t *b, va_list ap);
 
 /* func1.c */
 void to_bin(buff_t *b, va_list ap);
@@ -52,5 +53,6 @@ void to_bin(buff_t *b, va_list ap);
 /* func_aux.c */
 void buff_ctrl(buff_t *b);
 void int_to_char(int num, char *digits);
+void ui_to_char(unsigned int num, char *digits);
 
 #endif

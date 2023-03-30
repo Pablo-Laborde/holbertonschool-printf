@@ -53,3 +53,33 @@ void int_to_char(int num, char *digits)
 		}
 	}
 }
+
+/**
+ * ui_to_char- function
+ * @num: input
+ * @digits: input
+ * Return: void
+ */
+void ui_to_char(unsigned int num, char *digits)
+{
+	/* var declaration */
+	int i, length;
+	unsigned int aux;
+
+	/* code */
+	aux = num;
+	length = 1;
+	while (aux > 0)
+	{
+		aux /= 10;
+		length++;
+	}
+	digits[length] = '\0';
+	i = length - 1;
+	aux = num;
+	do {
+		digits[i] = (aux % 10) + '0';
+		aux /= 10;
+		i--;
+	} while (aux != 0);
+}
