@@ -126,13 +126,13 @@ void to_hex(buff_t *b, va_list ap)
 void to_heX(buff_t *b, va_list ap)
 {
 	/* var declaration */
-        int i;
-        unsigned int num, aux;
-        char number[8];
-        char values[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+	int i;
+	unsigned int num, aux;
+	char number[8];
+	char values[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
 		'A', 'B', 'C', 'D', 'E', 'F'};
 
-        /* code */
+	/* code */
 	num = va_arg(ap, int);
 	if (num == 0)
 	{
