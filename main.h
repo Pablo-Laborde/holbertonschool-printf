@@ -37,6 +37,7 @@ int _printf(const char *format, ...);
 void load_buffer(buff_t *b, const char *format, va_list ap);
 void slct_opt(buff_t *b, const char *format, int *i, va_list ap);
 void fast_load(buff_t *b, const char *format, int *i);
+void half_load(buff_t *b, const char c);
 void buff_ctrl(buff_t *b);
 
 /* get_func.c */

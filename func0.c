@@ -13,8 +13,7 @@ void ADD_CHAR(buff_t *b, va_list ap)
 
 	/* code */
 	c = va_arg(ap, int);
-	b->buffer[b->pos] = c;
-	b->pos++;
+	half_load(b, c);
 }
 
 /**
@@ -35,11 +34,7 @@ void ADD_STR(buff_t *b, va_list ap)
 	if (s == NULL)
 		s = "(null)";
 	while (s[i] != '\0')
-	{
 		fast_load(b, s, &i);
-		if (b->pos == BUFFSIZE)
-			buff_ctrl(b);
-	}
 }
 
 /**
@@ -58,19 +53,10 @@ void ADD_INT(buff_t *b, va_list ap)
 	num = va_arg(ap, int);
 	int_to_char(num, digits);
 	if (num < 0)
-	{
-		b->buffer[b->pos] = '-';
-		b->pos++;
-		if (b->pos == BUFFSIZE)
-			buff_ctrl(b);
-	}
+		half_load(b, '-');
 	i = 0;
 	while (digits[i] != '\0')
-	{
 		fast_load(b, digits, &i);
-		if (b->pos == BUFFSIZE)
-			buff_ctrl(b);
-	}
 }
 
 /**
@@ -91,9 +77,5 @@ void ADD_UI(buff_t *b, va_list ap)
 	ui_to_char(num, digits);
 	i = 0;
 	while (digits[i] != '\0')
-	{
 		fast_load(b, digits, &i);
-		if (b->pos == BUFFSIZE)
-			buff_ctrl(b);
-	}
 }

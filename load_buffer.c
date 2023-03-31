@@ -24,8 +24,8 @@ void load_buffer(buff_t *b, const char *format, va_list ap)
 			if (format[i] != '\0')
 				slct_opt(b, format, &i, ap);
 		}
-		buff_ctrl(b);
 	}
+	buff_ctrl(b);
 }
 
 /**
@@ -54,10 +54,7 @@ void slct_opt(buff_t *b, const char *format, int *i, va_list ap)
 		}
 		else
 		{
-			b->buffer[b->pos] = '%';
-			b->pos++;
-			if (b->pos == BUFFSIZE)
-				buff_ctrl(b);
+			half_load(b, '%');
 			fast_load(b, format, i);
 		}
 	}
@@ -75,6 +72,22 @@ void fast_load(buff_t *b, const char *format, int *i)
 	b->buffer[b->pos] = format[(*i)];
 	(*i)++;
 	b->pos++;
+	if (b->pos == BUFFSIZE)
+		buff_ctrl(b);
+}
+
+/**
+ * half_load- function
+ * @b: buffer pointer
+ * @c: char
+ * Return: void
+ */
+void half_load(buff_t *b, const char c)
+{
+	b->buffer[b->pos] = c;
+	b->pos++;
+	if (b->pos == BUFFSIZE)
+		buff_ctrl(b);
 }
 
 /**
