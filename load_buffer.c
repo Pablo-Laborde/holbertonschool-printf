@@ -66,7 +66,7 @@ void slct_opt(buff_t *b, const char *format, int *i, va_list ap)
  * @i: int
  * Return: void
  */
-void fast_load(buff_t *b, char *format, int *i)
+void fast_load(buff_t *b, const char *format, int *i)
 {
 	b->buffer[b->pos] = format[(*i)];
 	(*i)++;

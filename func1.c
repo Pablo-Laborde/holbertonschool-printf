@@ -32,7 +32,7 @@ void to_bin(buff_t *b, va_list ap)
 		i++;
 	while (i < 32)
 	{
-		load_fast(b, number, &i);
+		fast_load(b, number, &i);
 		if (b->pos == BUFFSIZE)
 			buff_ctrl(b);
 	}
