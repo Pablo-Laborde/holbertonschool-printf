@@ -222,9 +222,9 @@ i++;
 
 printf("Test %d:\n", i);
 printf("Esperado:\n");
-printf("\n");
+printf("%r\n", "HOLA");
 printf("Obtenido:\n");
-_printf("\n");
+_printf("%r\n", "HOLA");
 printf("\n");
 i++;
 

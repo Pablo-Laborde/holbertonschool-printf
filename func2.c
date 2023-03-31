@@ -20,5 +20,8 @@ void REV_STR(buff_t *b, va_list ap)
 		i++;
 	j = 1;
 	while (j <= i)
+	{
 		half_load(b, s[i - j]);
+		j++;
+	}
 }
