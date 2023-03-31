@@ -4,22 +4,25 @@
  * load_buffer- function
  * @b: pointer to buff_t
  * @format: string
- * @i: position in format
  * @ap: va_list
  * Return: void
  */
-void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
+void load_buffer(buff_t *b, const char *format, va_list ap)
 {
+	/* var declaration */
+	int i;
+
 	/* code */
-	while (format[(*i)] != '\0')
+	i = 0;
+	while (format[i] != '\0')
 	{
-		if (format[(*i)] != '%')
-			fast_load(b, format, i);
+		if (format[i] != '%')
+			fast_load(b, format, &i);
 		else
 		{
-			(*i)++;
-			if (format[(*i)] != '\0')
-				slct_opt(b, format, i, ap);
+			i++;
+			if (format[i] != '\0')
+				slct_opt(b, format, &i, ap);
 		}
 		buff_ctrl(b);
 	}

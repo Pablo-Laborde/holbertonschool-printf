@@ -34,7 +34,7 @@ typedef struct flags
 int _printf(const char *format, ...);
 
 /* load_buffer.c */
-void load_buffer(buff_t *b, const char *format, int *i, va_list ap);
+void load_buffer(buff_t *b, const char *format, va_list ap);
 void slct_opt(buff_t *b, const char *format, int *i, va_list ap);
 void fast_load(buff_t *b, const char *format, int *i);
 void buff_ctrl(buff_t *b);
