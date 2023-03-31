@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 	va_start(ap, format);
 	b.pos = 0;
 	b.length = 0;
-	while (format[i] == 0)
+	while (format[i] != '\0')
 	{
 		load_buffer(&b, format, &i, ap);
 		buff_ctrl(&b);
