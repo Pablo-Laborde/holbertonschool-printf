@@ -55,6 +55,10 @@ void to_oct(buff_t *b, va_list ap);
 void to_hex(buff_t *b, va_list ap);
 void to_heX(buff_t *b, va_list ap);
 
+/* func2.c */
+void REV_STR(buff_t *b, va_list ap);
+void ROT_STR(buff_t *b, va_list ap);
+
 /* a_func.c */
 void int_to_char(int num, char *digits);
 void ui_to_char(unsigned int num, char *digits);
