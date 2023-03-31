@@ -11,7 +11,8 @@
 void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 {
 	/* code */
-	while ((format[(*i)] != '\0') && (b->pos < BUFFSIZE))
+	while (format[(*i)] != '\0')
+	{
 		if (format[(*i)] != '%')
 			fast_load(b, format, i);
 		else
@@ -20,6 +21,8 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 			if (format[(*i)] != '\0')
 				slct_opt(b, format, i, ap);
 		}
+		buff_ctrl(b);
+	}
 }
 
 /**
