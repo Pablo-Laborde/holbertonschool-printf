@@ -13,23 +13,15 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 	/* var declaration */
 
 	/* code */
-	while (format[(*i)] != '\0' && b->pos != BUFFSIZE)
-	{
+	while (format[(*i)] != '\0' && b->pos < BUFFSIZE)
 		if (format[(*i)] != '%')
-		{
 			fast_load(b, format, i);
-			if (b->pos == BUFFSIZE)
-				buff_ctrl(b);
-		}
 		else
 		{
 			(*i)++;
 			if (format[(*i)] != '\0')
 				slct_opt(b, format, i, ap);
 		}
-		if (b->pos == BUFFSIZE)
-			buff_ctrl(b);
-	}
 }
 
 /**
