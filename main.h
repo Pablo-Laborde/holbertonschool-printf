@@ -50,6 +50,8 @@ void ADD_UI(buff_t *b, va_list ap);
 /* func1.c */
 void to_bin(buff_t *b, va_list ap);
 void to_oct(buff_t *b, va_list ap);
+void to_hex(buff_t *b, va_list ap);
+void to_heX(buff_t *b, va_list ap);
 
 /* func_aux.c */
 void buff_ctrl(buff_t *b);

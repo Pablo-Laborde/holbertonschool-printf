@@ -17,6 +17,8 @@ void (*get_func(char c))(buff_t*, va_list)
 		{'u', ADD_UI},
 		{'b', to_bin},
 		{'o', to_oct},
+		{'x', to_hex},
+		{'X', to_heX},
 		{'\0', NULL},
 	};
 
