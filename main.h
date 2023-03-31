@@ -35,8 +35,9 @@ int _printf(const char *format, ...);
 
 /* load_buffer.c */
 void load_buffer(buff_t *b, const char *format, int *i, va_list ap);
-void fast_load(buff_t *b, const char *format, int *i);
 void slct_opt(buff_t *b, const char *format, int *i, va_list ap);
+void fast_load(buff_t *b, const char *format, int *i);
+void buff_ctrl(buff_t *b);
 
 /* get_func.c */
 void (*get_func(char c))(buff_t*, va_list);
@@ -53,8 +54,7 @@ void to_oct(buff_t *b, va_list ap);
 void to_hex(buff_t *b, va_list ap);
 void to_heX(buff_t *b, va_list ap);
 
-/* func_aux.c */
-void buff_ctrl(buff_t *b);
+/* a_func.c */
 void int_to_char(int num, char *digits);
 void ui_to_char(unsigned int num, char *digits);
 

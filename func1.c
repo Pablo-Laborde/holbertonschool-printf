@@ -32,9 +32,7 @@ void to_bin(buff_t *b, va_list ap)
 		i++;
 	while (i < 32)
 	{
-		b->buffer[b->pos] = number[i];
-		i++;
-		b->pos++;
+		load_fast(b, number, &i);
 		if (b->pos == BUFFSIZE)
 			buff_ctrl(b);
 	}
@@ -72,9 +70,7 @@ void to_oct(buff_t *b, va_list ap)
 		i++;
 	while (i < 11)
 	{
-		b->buffer[b->pos] = number[i];
-		i++;
-		b->pos++;
+		fast_load(b, number, &i);
 		if (b->pos == BUFFSIZE)
 			buff_ctrl(b);
 	}
@@ -115,9 +111,7 @@ void to_hex(buff_t *b, va_list ap)
 		i++;
 	while (i < 8)
 	{
-		b->buffer[b->pos] = number[i];
-		i++;
-		b->pos++;
+		fast_load(b, number, &i);
 		if (b->pos == BUFFSIZE)
 			buff_ctrl(b);
 	}
@@ -136,7 +130,7 @@ void to_heX(buff_t *b, va_list ap)
         unsigned int num, aux;
         char number[8];
         char values[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-		'a', 'b', 'c', 'd', 'e', 'f'};
+		'A', 'B', 'C', 'D', 'E', 'F'};
 
         /* code */
 	num = va_arg(ap, int);
@@ -158,9 +152,7 @@ void to_heX(buff_t *b, va_list ap)
 		i++;
 	while (i < 8)
 	{
-		b->buffer[b->pos] = number[i];
-		i++;
-		b->pos++;
+		fast_load(b, number, &i);
 		if (b->pos == BUFFSIZE)
 			buff_ctrl(b);
 	}

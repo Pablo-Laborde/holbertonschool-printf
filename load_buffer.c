@@ -25,20 +25,6 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 }
 
 /**
- * fast_load- function
- * @b: buffer pointer
- * @format: format
- * @i: int
- * Return: void
- */
-void fast_load(buff_t *b, const char *format, int *i)
-{
-	b->buffer[b->pos] = format[(*i)];
-	(*i)++;
-	b->pos++;
-}
-
-/**
  * slct_opt- function
  * @b: buffer pointer
  * @format: format
@@ -71,4 +57,30 @@ void slct_opt(buff_t *b, const char *format, int *i, va_list ap)
 			fast_load(b, format, i);
 		}
 	}
+}
+
+/**
+ * fast_load- function
+ * @b: buffer pointer
+ * @format: format
+ * @i: int
+ * Return: void
+ */
+void fast_load(buff_t *b, char *format, int *i)
+{
+	b->buffer[b->pos] = format[(*i)];
+	(*i)++;
+	b->pos++;
+}
+
+/**
+ * buff_ctrl- function
+ * @b: buffer
+ * Return: void
+ */
+void buff_ctrl(buff_t *b)
+{
+	b->length += b->pos;
+	write(1, b->buffer, b->pos);
+	b->pos = 0;
 }
