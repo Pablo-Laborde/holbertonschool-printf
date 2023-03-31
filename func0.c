@@ -13,11 +13,8 @@ void ADD_CHAR(buff_t *b, va_list ap)
 
 	/* code */
 	c = va_arg(ap, int);
-	if (c != '\0')
-	{
-		b->buffer[b->pos] = c;
-		b->pos++;
-	}
+	b->buffer[b->pos] = c;
+	b->pos++;
 }
 
 /**

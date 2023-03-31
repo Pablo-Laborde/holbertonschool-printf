@@ -13,7 +13,7 @@ void load_buffer(buff_t *b, const char *format, int *i, va_list ap)
 	/* var declaration */
 
 	/* code */
-	while (format[(*i)] != '\0')
+	while (format[(*i)] != '\0' && b->pos != BUFFSIZE)
 	{
 		if (format[(*i)] != '%')
 		{
