@@ -12,9 +12,9 @@ void ADD_CHAR(buff_t *b, va_list ap)
 	char c;
 
 	/* code */
+	c = va_arg(ap, int);
 	if (c != '\0')
 	{
-		c = va_arg(ap, int);
 		b->buffer[b->pos] = c;
 		b->pos++;
 	}
