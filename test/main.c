@@ -232,7 +232,7 @@ printf("Test %d:\n", i);
 printf("Esperado:\n");
 printf("\n");
 printf("Obtenido:\n");
-_printf("\n");
+_printf("%R\n", "HOLAZ");
 printf("\n");
 i++;
 
