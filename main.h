@@ -63,6 +63,6 @@ void ROT_STR(buff_t *b, va_list ap);
 /* a_func.c */
 void int_to_char(int num, char *digits);
 void ui_to_char(unsigned int num, char *digits);
-void adr_to_char(long int num, char *address);
+void adr_to_char(unsigned long int num, char *address);
 
 #endif

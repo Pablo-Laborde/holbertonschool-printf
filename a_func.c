@@ -83,7 +83,7 @@ void ui_to_char(unsigned int num, char *digits)
  * @address: input
  * Return: void
  */
-void adr_to_char(long int num, char *address)
+void adr_to_char(unsigned long int num, char *address)
 {
 	/* var declaration */
 	int i, aux;
