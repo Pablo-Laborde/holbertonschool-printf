@@ -1,6 +1,37 @@
 #include "main.h"
 
 /**
+ * ADD_ADR- functions
+ * @b: input
+ * @ap: input
+ */
+void ADD_ADR(buff_t *b, va_list ap)
+{
+	/* var declaration */
+	int i;
+	long int adr;
+	char *null;
+	char address[17];
+
+	/* code */
+	adr = va_arg(ap, long int);
+	null = "(nil)";
+	i = 0;
+	if (adr == 0)
+		while (null[i] != '\0')
+			fast_load(b, null, &i);
+	else
+	{
+		address[16] = '\0';
+		adr_to_char(adr, address);
+		while (address[i] == '0')
+			i++;
+		while (address[i] != '\0')
+			fast_load(b, address, &i);
+	}
+}
+
+/**
  * REV_STR- function
  * @b: input
  * @ap: input
