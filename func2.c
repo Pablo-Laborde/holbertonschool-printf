@@ -43,7 +43,7 @@ void ADD_PSTR(buff_t *b, va_list ap)
 	/* var declaration */
 	int i, j, val;
 	char *s;
-	char h_val[7];
+	char h_val[3];
 
 	/* code */
 	i = 0;
@@ -53,11 +53,11 @@ void ADD_PSTR(buff_t *b, va_list ap)
 	while (s[i] != '\0')
 		if ((s[i] > 0 && s[i] < 32) || s[i] >= 127)
 		{
-			h_val[6] = '\0';
+			h_val[2] = '\0';
 			half_load(b, '\\');
 			half_load(b, 'x');
 			val = s[i];
-			for (j = 5; j >= 0; j--)
+			for (j = 1; j >= 0; j--)
 			{
 				h_val[j] = val % 16;
 				val /= 16;
