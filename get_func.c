@@ -20,6 +20,7 @@ void (*get_func(char c))(buff_t*, va_list)
 		{'x', to_hex},
 		{'X', to_heX},
 		{'p', ADD_ADR},
+		{'S', ADD_PSTR},
 		{'r', REV_STR},
 		{'R', ROT_STR},
 		{'\0', NULL},

@@ -33,6 +33,46 @@ void ADD_ADR(buff_t *b, va_list ap)
 }
 
 /**
+ * ADD_PSTR- function
+ * @b: input
+ * @ap: input
+ * Return: void
+ */
+void ADD_PSTR(buff_t *b, va_list ap)
+{
+	/* var declaration */
+	int i, j, val;
+	char *s;
+	char h_val[7];
+
+	/* code */
+	i = 0;
+	s = va_arg(ap, char*);
+	if (s == NULL)
+		s = "(null)";
+	while (s[i] != '\0')
+		if ((s[i] > 0 && s[i] < 32) || s[i] >= 127)
+		{
+			h_val[6] = '\0';
+			half_load(b, '\\');
+			half_load(b, 'x');
+			val = s[i];
+			for (j = 5; j >= 0; j--)
+			{
+				h_val[j] = val % 16;
+				val /= 16;
+			}
+			j = 0;
+			while (h_val[j] == 0)
+				j++;
+			while (h_val[j] != '\0')
+				fast_load(b, h_val, &j);
+		}
+		else
+			fast_load(b, s, &i);
+}
+
+/**
  * REV_STR- function
  * @b: input
  * @ap: input

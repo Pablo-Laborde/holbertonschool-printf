@@ -237,16 +237,10 @@ printf("\n");
 i++;
 
 printf("Test %d:\n", i);
-long int j;
-j = 0;
-while (j >= 0)
-{
-	printf("%p - ", j);
-	_printf("%p", j);
-	printf("\n");
-	j++;
-}
-printf("\n");
+printf("Esperado:\n");
+printf("%S\n", "H\nO");
+printf("Obtenido:\n");
+printf("%S\n", "H\nO");
 i++;
 	return (0);
 }
