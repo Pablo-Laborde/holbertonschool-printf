@@ -23,8 +23,8 @@ void ADD_ADR(buff_t *b, va_list ap)
 	else
 	{
 		adr_to_char(adr, address);
-		/*while (address[i] == '0')*/
-			/*i++;*/
+		while (address[i] == '0')
+			i++;
 		half_load(b, '0');
 		half_load(b, 'x');
 		while (address[i] != '\0')
