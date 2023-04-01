@@ -237,24 +237,15 @@ printf("\n");
 i++;
 
 printf("Test %d:\n", i);
-printf("Esperado:\n");
-printf("%p\n", NULL);
-printf("%p\n", &i);
-printf("%p\n", -1);
-printf("%p\n", 0);
-printf("%p\n", 1);
-printf("%p\n", 15);
-printf("%p\n", 16);
-printf("%p\n", 1234567890);
-printf("Obtenido:\n");
-_printf("%p\n", NULL);
-_printf("%p\n", &i);
-_printf("%p\n", -1);
-_printf("%p\n", 0);
-_printf("%p\n", 1);
-_printf("%p\n", 15);
-_printf("%p\n", 16);
-_printf("%p\n", 1234567890);
+long int j;
+j = 0;
+while (j >= 0)
+{
+	printf("%p - ", j);
+	_printf("%p", j);
+	printf("\n");
+	j++;
+}
 printf("\n");
 i++;
 	return (0);

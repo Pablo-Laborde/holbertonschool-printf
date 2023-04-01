@@ -9,7 +9,7 @@ void ADD_ADR(buff_t *b, va_list ap)
 {
 	/* var declaration */
 	int i;
-	long int adr;
+	unsigned long int adr;
 	char *null;
 	char address[17];
 
