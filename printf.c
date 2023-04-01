@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * _printf- function
- * @format: string input
- * Return: length of string if valid ,else a negative number
+ * _printf- prints the given string, replacing place holders by the given argument
+ * @format: the string given as input
+ * Return: returns the length of the printed string
  */
 int _printf(const char *format, ...)
 {

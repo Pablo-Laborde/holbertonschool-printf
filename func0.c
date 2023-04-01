@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
-* ADD_CHAR - Function
-* @b: input
-* @ap: input
+* ADD_CHAR- adds a char to the buffer
+* @b: pointer to buff_t, the struct which contains the buffer to be printed
+* @ap: the argument list
 * Return: void
 */
 void ADD_CHAR(buff_t *b, va_list ap)
@@ -17,9 +17,9 @@ void ADD_CHAR(buff_t *b, va_list ap)
 }
 
 /**
- * ADD_STR- function
- * @b: input
- * @ap: input
+ * ADD_STR- adds a str to the buffer
+ * @b: pointer to buff_t, the struct which contains the buffer to be printed
+ * @ap: the argument list
  * Return: void
  */
 void ADD_STR(buff_t *b, va_list ap)
@@ -38,9 +38,9 @@ void ADD_STR(buff_t *b, va_list ap)
 }
 
 /**
- * ADD_INT- function
- * @b: input
- * @ap: input
+ * ADD_INT- adds a int to the buffer
+ * @b: pointer to buff_t, the struct which contains the buffer to be printed
+ * @ap: the argument list
  * Return:void
  */
 void ADD_INT(buff_t *b, va_list ap)
@@ -60,9 +60,9 @@ void ADD_INT(buff_t *b, va_list ap)
 }
 
 /**
- * ADD_UI- function
- * @b: input
- * @ap: input
+ * ADD_UI- adds an unsigned int to the buffer
+ * @b: pointer to buff_t, the struct which contains the buffer to be printed
+ * @ap: the argument list
  * Return: void
  */
 void ADD_UI(buff_t *b, va_list ap)

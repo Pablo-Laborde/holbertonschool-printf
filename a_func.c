@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * int_to_char- function
- * @num: input
- * @digits: input
+ * int_to_char- transforms an integer to str
+ * @num: number to be changed
+ * @digits: array where the number is stored as a str
  * Return: void
  */
 void int_to_char(int num, char *digits)
@@ -43,9 +43,9 @@ void int_to_char(int num, char *digits)
 }
 
 /**
- * ui_to_char- function
- * @num: input
- * @digits: input
+ * ui_to_char- transforms an unsigned int to str
+ * @num: number to be changed
+ * @digits: array where the number is stored as str
  * Return: void
  */
 void ui_to_char(unsigned int num, char *digits)
@@ -78,9 +78,9 @@ void ui_to_char(unsigned int num, char *digits)
 }
 
 /**
- * adr_to_char- function
- * @num: input
- * @address: input
+ * adr_to_char- transforms an address to a str
+ * @num: number to be changed
+ * @address: array where the address is stored as str
  * Return: void
  */
 void adr_to_char(unsigned long int num, char *address)

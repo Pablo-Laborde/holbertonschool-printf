@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * ADD_ADR- functions
- * @b: input
- * @ap: input
+ * ADD_ADR- adds an address to the buffer
+ * @b: pointer to buff_t, the struct which contains the buffer to be printed
+ * @ap: the argument list
  */
 void ADD_ADR(buff_t *b, va_list ap)
 {
@@ -33,9 +33,9 @@ void ADD_ADR(buff_t *b, va_list ap)
 }
 
 /**
- * ADD_PSTR- function
- * @b: input
- * @ap: input
+ * ADD_PSTR- adds a str to the buffer, but changing some special chars
+ * @b: pointer to buff_t, the struct which contains the buffer to be printed
+ * @ap: the argument list
  * Return: void
  */
 void ADD_PSTR(buff_t *b, va_list ap)
@@ -63,8 +63,6 @@ void ADD_PSTR(buff_t *b, va_list ap)
 				val /= 16;
 			}
 			j = 0;
-			while (h_val[j] == 0)
-				j++;
 			while (h_val[j] != '\0')
 				fast_load(b, h_val, &j);
 		}
@@ -73,9 +71,9 @@ void ADD_PSTR(buff_t *b, va_list ap)
 }
 
 /**
- * REV_STR- function
- * @b: input
- * @ap: input
+ * REV_STR- adds a reversed str to the buffer
+ * @b: pointer to buff_t, the struct which contains the buffer to be printed
+ * @ap: the argument list
  */
 void REV_STR(buff_t *b, va_list ap)
 {
@@ -99,9 +97,9 @@ void REV_STR(buff_t *b, va_list ap)
 }
 
 /**
- * ROT_STR- function
- * @b: input
- * @ap: input
+ * ROT_STR- adds a rotated str to the buffer
+ * @b: pointer to buff_t, the struct which contains the buffer to be printed
+ * @ap: the argument list
  * Return: void
  */
 void ROT_STR(buff_t *b, va_list ap)

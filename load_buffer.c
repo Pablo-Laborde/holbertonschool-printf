@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * load_buffer- function
- * @b: pointer to buff_t
- * @format: string
- * @ap: va_list
+ * load_buffer- controls all the functions to load the buffer
+ * @b: pointer to buff_t, the struct which contains the buffer to be printed
+ * @format: the original input
+ * @ap: the argument list
  * Return: void
  */
 void load_buffer(buff_t *b, const char *format, va_list ap)
@@ -29,11 +29,11 @@ void load_buffer(buff_t *b, const char *format, va_list ap)
 }
 
 /**
- * slct_opt- function
- * @b: buffer pointer
- * @format: format
+ * slct_opt- selects the correct function for each placeholder if it exists
+ * @b: pointer to buff_t, the struct which contains the buffer to be printed
+ * @format: the original input
  * @i: position in format
- * @ap: va_list
+ * @ap: the argument list
  * Return: void
  */
 void slct_opt(buff_t *b, const char *format, int *i, va_list ap)
@@ -61,10 +61,10 @@ void slct_opt(buff_t *b, const char *format, int *i, va_list ap)
 }
 
 /**
- * fast_load- function
- * @b: buffer pointer
- * @format: format
- * @i: int
+ * fast_load- loads a char of a string to the buffer
+ * @b: pointer to buff_t, the struct which contains the buffer to be printed
+ * @format: the original input
+ * @i: position in format to be copied
  * Return: void
  */
 void fast_load(buff_t *b, const char *format, int *i)
@@ -77,9 +77,9 @@ void fast_load(buff_t *b, const char *format, int *i)
 }
 
 /**
- * half_load- function
- * @b: buffer pointer
- * @c: char
+ * half_load- loads a char to the buffer
+ * @b: pointer to buff_t, the struct which contains the buffer to be printed
+ * @c: char to be copied
  * Return: void
  */
 void half_load(buff_t *b, const char c)
@@ -91,8 +91,8 @@ void half_load(buff_t *b, const char c)
 }
 
 /**
- * buff_ctrl- function
- * @b: buffer
+ * buff_ctrl- controls the state of the buffer
+ * @b: pointer to buff_t, the struct which contains the buffer to be printed
  * Return: void
  */
 void buff_ctrl(buff_t *b)

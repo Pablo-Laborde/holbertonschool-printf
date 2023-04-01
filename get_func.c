@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * get_func- function
- * @c: input
- * Return: function pointer
+ * get_func- looks for the correct function for each placeholder
+ * @c: the char wihch is associated the placeholder expected
+ * Return: return the correct function pointer if it exists, NULL otherwise
  */
 void (*get_func(char c))(buff_t*, va_list)
 {

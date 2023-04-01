@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * to_bin- function
- * @b: input
- * @ap: input
+ * to_bin- transforms a decimal number to binary and loads it to the buffer
+ * @b: pointer to buff_t, the struct which contains the buffer to be printed
+ * @ap: the argument list
  * Return: void
  */
 void to_bin(buff_t *b, va_list ap)
@@ -30,9 +30,9 @@ void to_bin(buff_t *b, va_list ap)
 }
 
 /**
- * to_oct- function
- * @b: input
- * @ap: input
+ * to_oct- transforms a decimal number to octal and loads it to the buffer
+ * @b: pointer to buff_t, the struct which contains the buffer to be printed
+ * @ap: the argument list
  * Return:
  */
 void to_oct(buff_t *b, va_list ap)
@@ -59,9 +59,9 @@ void to_oct(buff_t *b, va_list ap)
 }
 
 /**
- * to_hex- function
- * @b: input
- * @ap: input
+ * to_hex- transforms a decimal number to hexadecimal lowercase and loads it to the buffer
+ * @b: pointer to buff_t, the struct which contains the buffer to be printed
+ * @ap: the argument list
  * Return: void
  */
 void to_hex(buff_t *b, va_list ap)
@@ -91,9 +91,9 @@ void to_hex(buff_t *b, va_list ap)
 }
 
 /**
- * to_heX- function
- * @b: input
- * @ap: input
+ * to_heX- transforms a decimal number to hexadecimal uppercase and loads it to the buffer
+ * @b: pointer to buff_t, the struct which contains the buffer to be printed
+ * @ap: the argument list
  * Return: void
  */
 void to_heX(buff_t *b, va_list ap)
