@@ -78,7 +78,7 @@ void ui_to_char(unsigned int num, char *digits)
 }
 
 /**
- * adr_to_char function
+ * adr_to_char- function
  * @num: input
  * @address: input
  * Return: void
