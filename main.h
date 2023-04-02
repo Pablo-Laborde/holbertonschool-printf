@@ -56,7 +56,7 @@ void to_hex(buff_t *b, va_list ap);
 void to_heX(buff_t *b, va_list ap);
 
 /* func2.c */
-void ADD_ADR(buff_t *b, va_list ap);
+void ADD_ADDR(buff_t *b, va_list ap);
 void ADD_PSTR(buff_t *b, va_list ap);
 void REV_STR(buff_t *b, va_list ap);
 void ROT_STR(buff_t *b, va_list ap);

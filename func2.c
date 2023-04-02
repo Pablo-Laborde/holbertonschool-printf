@@ -5,7 +5,7 @@
  * @b: pointer to buff_t, the struct which contains the buffer to be printed
  * @ap: the argument list
  */
-void ADD_ADR(buff_t *b, va_list ap)
+void ADD_ADDR(buff_t *b, va_list ap)
 {
 	/* var declaration */
 	int i;
@@ -65,6 +65,7 @@ void ADD_PSTR(buff_t *b, va_list ap)
 			j = 0;
 			while (h_val[j] != '\0')
 				fast_load(b, h_val, &j);
+			i++;
 		}
 		else
 			fast_load(b, s, &i);

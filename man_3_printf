@@ -1,7 +1,7 @@
 _printf(1) - Linux manual page
 
 NAME | SYNOPSIS | DESCRIPTION |
-RETURN VALUE | EXAMPLES
+RETURN VALUE | PLACE HOLDERS | EXAMPLES
 
 _PRINTF(1)		Linux Programmer's Manual		_PRINTF(1)
 
@@ -17,3 +17,151 @@ SYNOPSIS
 	int _printf(const char *format, ...);
 
 DESCRIPTION
+
+	_printf() produce output as described below.
+
+	The string is modified using the variable-length list of arguments
+	passed to the function.
+
+	See some examples in the example section.
+
+RETURN VALUE
+
+	_printf() returns -1 if an invalid string is passed, returns the length
+	of the printed string otherwise.
+
+	See some examples in the example section.
+
+PLACE HOLDERS
+
+	To indicate where in the format string must be replaced by the value
+	passed as argument, it's necesary to indicate it with the '%' symbol,
+	fallowed by a character wich is asociated to a data type, see the list
+	below.
+
+	%c	is replaced by a single character.
+	%s	is replaced by a string.
+	%%	to print a '%' symbol.
+	%d / %i is replaced by an integer.
+	%u	is replaced by an unsigned integer.
+	%b	is replaced by a number in binary.
+	%o	is replaced by a number in octal.
+	%x / %X is replaced by a number in hexadecimal lowercase / uppercase.
+	%p	is replaced by an address.
+	%S	is replaced by a string, but if (0 < char < 32 || char > 127)
+		then prints it's ASCII value in hexadecimal.
+	%r	is replaced by a the reversed string passed.
+	%R	is replaced by a rotated 13 string passed.
+
+EXAMPLES
+
+	Let's define rv as the return value for each call of _printf().
+
+	call:	_printf(NULL);
+	output:
+	rv:	-1
+
+	call:	_printf("");
+	output:
+	rv:	-1
+
+	call:	_printf("%");
+	output:
+	rv:	-1
+
+	call:	_printf("Hello, World\n");
+	output:	Hello, World
+	rv:	13
+
+	call:	_printf("Hello, world%); /* without \n at the end */
+	output:	Hello, world
+	rv:	12
+
+	call:	_printf("Hello, world%\n");
+	output:	Hello, world%
+	rv:	14
+
+%c
+	call:	_printf("Hello, %cvier\n", 'J');
+	output:	Hello, Javier
+	rv:	14
+
+	call:	_printf("Hello%c, world\n", '\n');
+	output:	Hello
+		, world
+	rv:	14
+
+%s
+	call:	_printf("Hello, %s\n", "Nacho");
+	output: Hello, Nacho
+	rv:	13
+
+	call:	_printf("This is %s\n", NULL);
+	output:	This is (null)
+	rv:	15
+
+%%
+	call:	_printf("I want to print a %%\n");
+	output:	I want to print a %
+	rv:	19
+
+%d / %i
+	call:	_printf("Why is %d different from %i\n", 11, 9);
+	output:	Why is 11 different from 9
+	rv:	27
+
+%u
+	call:	_printf("%u is the lower number for unsigned int", 0);
+	output:	0 is the lower number for unsigned int
+	rv:	39
+
+%b
+	call:	_printf("13 in binary is %b\n", 13);
+	output:	13 in binary is 1101
+	rv:	20
+
+%o
+	call:	_printf("17 in octal is %o\n", 17);
+	output:	17 in octal is 21
+	rv:	18
+
+%x / %X
+	call:	_printf("31 in hexadecimal could be %x or %X\n", 31);
+	output: 31 in hexadecimal could be 1f or 1F
+	rv:	36
+
+%p
+	call:	_printf("%p is the address of 0\n", NULL);
+	output:	(nil) is the address of 0
+	rv:	27
+
+	call:	_printf("%p is the address of 31\n", 31);
+	output:	0x1f is the address of 31
+	rv:	26
+
+%S
+	call:	_printf("%S\n", "Here-> \n <-");
+	output:	Here-> \x0A <-
+	rv:	15
+
+	call:	_printf("%S\n", NULL);
+	output:	(null)
+	rv:	7
+
+%r
+	call:	_printf("%r\n", "Hello, world");
+	output:	dlrow ,olleH
+	rv:	13
+
+	call:	_printf("%r\n", NULL);
+	output:	(llun)
+	rv:	7
+
+%R
+	call:	_printf("%R\n", "Hello, world");
+	output:	Uryyb, jbeyq
+	rv:	13
+
+	call:	_printf("%R\n", NULL);
+	output:	(ahyy)
+	rv:	7
