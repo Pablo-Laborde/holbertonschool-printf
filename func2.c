@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * ADD_ADR- adds an address to the buffer
+ * ADD_ADDR- adds an address to the buffer
  * @b: pointer to buff_t, the struct which contains the buffer to be printed
  * @ap: the argument list
  */
@@ -41,9 +41,10 @@ void ADD_ADDR(buff_t *b, va_list ap)
 void ADD_PSTR(buff_t *b, va_list ap)
 {
 	/* var declaration */
-	int i, j, val;
-	char *s;
-	char h_val[3];
+	int i, j, aux, val;
+	char *s, hval[2];
+	char values[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+		'A', 'B', 'C', 'D', 'E', 'F'};
 
 	/* code */
 	i = 0;
@@ -53,18 +54,17 @@ void ADD_PSTR(buff_t *b, va_list ap)
 	while (s[i] != '\0')
 		if ((s[i] > 0 && s[i] < 32) || s[i] >= 127)
 		{
-			h_val[2] = '\0';
 			half_load(b, '\\');
 			half_load(b, 'x');
-			val = s[i];
+			aux = s[i];
 			for (j = 1; j >= 0; j--)
 			{
-				h_val[j] = val % 16;
-				val /= 16;
+				val = aux % 16;
+				aux /= 16;
+				hval[j] = values[val];
 			}
-			j = 0;
-			while (h_val[j] != '\0')
-				fast_load(b, h_val, &j);
+			for (j = 0; j < 2; j++)
+				half_load(b, hval[j]);
 			i++;
 		}
 		else

@@ -59,7 +59,8 @@ void to_oct(buff_t *b, va_list ap)
 }
 
 /**
- * to_hex- transforms a decimal number to hexadecimal lowercase and loads it to the buffer
+ * to_hex- transforms a decimal number to hexadecimal lowercase
+ * and loads it to the buffer
  * @b: pointer to buff_t, the struct which contains the buffer to be printed
  * @ap: the argument list
  * Return: void
@@ -91,7 +92,8 @@ void to_hex(buff_t *b, va_list ap)
 }
 
 /**
- * to_heX- transforms a decimal number to hexadecimal uppercase and loads it to the buffer
+ * to_heX- transforms a decimal number to hexadecimal uppercase
+ * and loads it to the buffer
  * @b: pointer to buff_t, the struct which contains the buffer to be printed
  * @ap: the argument list
  * Return: void
